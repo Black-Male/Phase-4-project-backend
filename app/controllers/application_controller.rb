@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies 
     rescue_from StandardError, with: :standard_error
-    
+
+
     #hash data into web token
     def encode(uid,email)
         payload ={
@@ -56,7 +57,7 @@ class ApplicationController < ActionController::API
 
      # rescue all common errors
      def standard_error(exception)
-        render json:{info:exception.message}, status: :unproccessable_entity
+        render json:{info:exception.message}, status: :unprocessable_entity
     end
 
 end
