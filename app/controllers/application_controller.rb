@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies 
+    rescue_from StandardError, with: :standard_error
     
     #hash data into web token
     def encode(uid,email)
@@ -47,8 +48,15 @@ class ApplicationController < ActionController::API
         end
     end
 
-    #delete token 
+    #delete jwt token 
     def remove_user 
+        token - nil
+        render json:{message:"log out successful"}
+    end
+
+     # rescue all common errors
+     def standard_error(exception)
+        render json:{info:exception.message}, status: :unproccessable_entity
     end
 
 end
