@@ -16,6 +16,6 @@ class MoviesController < ApplicationController
     end
 
     def render_not_found_response 
-        render json: {error: "Movie not found"}, status: :not_found
+        render json: {errors: "Movie not found"}, status: :not_found
     end
 end

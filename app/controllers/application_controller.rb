@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
         begin
         JWT.encode(payload, ENV['task train key'], 'HS256')
         rescue JWT::EncodeError => e
-            render json:{info:"something went wrong"}, status: 400
+            render json:{errors:"something went wrong"}, status: 400
 
         end
     end
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::API
         begin
         JWT.decode(token, ENV['task_train_key'],true,{algorithm:'HS256'})
         rescue JWT::DecodeError => e
-            render json:{info:"your request is not authorized"},status: :unauthorized
+            render json:{errors:"your request is not authorized"},status: :unauthorized
         end
     end
 
@@ -42,7 +42,7 @@ class ApplicationController < ActionController::API
     def verify_auth
         auth_headers = request.headers['Authorization']
         if !auth_headers
-            render json:{info:"Your request is not authorized"}, status: :unauthorized
+            render json:{errors:"Your request is not authorized"}, status: :unauthorized
         else
             token = auth_headers.split(' ')[1]
             save_user_id(token)
@@ -57,7 +57,7 @@ class ApplicationController < ActionController::API
 
      # rescue all common errors
      def standard_error(exception)
-        render json:{info:exception.message}, status: :unprocessable_entity
+        render json:{errors:exception.message}, status: :unprocessable_entity
     end
 
 end
