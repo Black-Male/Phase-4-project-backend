@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :session_expired?, only: [:check_login_status] 
 
     def register
         user = User.create(user_params)

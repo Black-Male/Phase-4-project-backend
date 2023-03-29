@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    before_action :session_expired?
 
     def create 
         favorite = user.favorites.create!(favorite_params)
@@ -8,7 +9,8 @@ class FavoritesController < ApplicationController
 
     def index 
         favorites = user.favorites.all 
-        render json: favorites.movies
+        fav_movie = favorites.map(&:movie)
+        render json: fav_movie
     end
 
     def show 
@@ -30,7 +32,7 @@ class FavoritesController < ApplicationController
     end
 
     def favorite_params
-        params.permit(:movie_id,:user_id)
+        params.permit(:movie_id)
     end
 
 
