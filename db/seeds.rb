@@ -36,21 +36,16 @@ puts "WE ROLLING"
 #       )
 #     end
 #   end
-# 10.times do
-#   Favorite.create!(
-#     user_id: rand(1..4),
-#     movie_id: rand(1..10)
-#   )
-# end
 
-user = User.create([
-    {"name": "amaya may", "email": "amaya@gmail.com", "password": "123" },
-    {"name": "amaya maya", "email": "amayamay@gmail.com", "password": "123" },
-    {"name": "amaya mayan", "email": "mayan@gmail.com", "password": "123" },
-    {"name": "amaya meyers", "email": "meyers@gmail.com", "password": "123" }
+
+user = User.create!([
+    {"username": "amaya may", "email": "amaya.amay@gmail.com", "password": "123" },
+    {"username": "amaya maya", "email": "amayamay.may@gmail.com", "password": "123" },
+    {"username": "amaya mayan", "email": "mayan.may@gmail.com", "password": "123" },
+    {"username": "amaya meyers", "email": "meyers@gmail.com", "password": "123" }
 ])
 
-movie = Movie.create([
+movie = Movie.create!([
     {
         "title": "The Avengers",
         "description": "Marvel's The Avengers or simply The Avengers, is a 2012 American superhero film based on the Marvel Comics superhero team of the same name",
@@ -152,5 +147,12 @@ movie = Movie.create([
         "video": ""
     }
 ])
+
+2.times do
+    Favorite.create!(
+      user_id: rand(1..4),
+      movie_id: rand(1..10)
+    )
+  end
 
 puts "OVER AND OUT"
