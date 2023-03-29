@@ -27,7 +27,9 @@ class VideosController < ApplicationController
         head :no_content
     end
 
-    def show 
+    def show
+        video = find_video
+        render json: video 
     end 
 
     private 
