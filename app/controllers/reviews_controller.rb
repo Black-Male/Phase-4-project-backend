@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    before_action :session_expired?, except:[:index]
+
 
     def index 
         reviews = Review.all 
@@ -40,7 +42,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params 
-        params.permit(:comment)
+        params.permit(:comment,:movie_id)
     end
 
     def render_unprocessable_entity_response(invalid)
