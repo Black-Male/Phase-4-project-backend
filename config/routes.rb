@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  resources :videos
   resources :reviews
   resources :movies
   resources :favorites
   resources :ratings
+
+  get '/all_videos', to:"videos#all_videos"
   
   get '/users/reviews', to:"reviews#user_reviews"
    #user

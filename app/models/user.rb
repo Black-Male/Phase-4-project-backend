@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :reviews 
     has_many :ratings
     has_many :favorites
+    has_many :videos
     has_many :movies, through: :favorites
     
     validates :email,{

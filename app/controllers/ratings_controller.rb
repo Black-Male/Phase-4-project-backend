@@ -2,13 +2,13 @@ class RatingsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def create 
-        rating = user.ratings.create(rating_params)
+        rating = user.ratings.create!(rating_params)
         render json: rating, status: :created
     end
 
     def update
         rating = find_rating
-        rating.update(rating_params) 
+        rating.update!(rating_params) 
         render json: rating
     end
 
