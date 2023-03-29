@@ -1,5 +1,7 @@
 class VideosController < ApplicationController
-
+    before_action :session_expired?, except: [:all_videos]
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    
     def create 
         video = user.videos.create!(video_params)
         render json: video, status: :created
