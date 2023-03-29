@@ -7,6 +7,8 @@ class CreateMovies < ActiveRecord::Migration[7.0]
       t.string :release_date 
       t.string :cast 
       t.string :director
+      t.string :image_src
+      t.string :video
 
       t.timestamps
     end
