@@ -31,6 +31,16 @@ class UsersController < ApplicationController
         render json:{message:"success"}
     end
 
+    def reset_password
+        user = User.find_by(email: params[:email])
+        if user.present?
+            user.update(password: params[:new_password])
+            render json: {message: "Password reset successful"}
+        else
+            render json: {errors: "Email not found"}, status: :not_found
+        end
+    end
+
     private 
 
     def user_params 

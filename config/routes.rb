@@ -13,6 +13,7 @@ Rails.application.routes.draw do
    post '/users', to:"users#register"
    post '/users/login', to:"users#login"
    get 'users/login/check', to:"users#check_login_status"
+   post '/users/reset', to:"users#reset_password"
   # resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
