@@ -43,7 +43,7 @@ class ApplicationController < ActionController::API
     end
 
     #delete jwt token 
-    def remove_user 
+    def remove_user_token 
         token = nil
         render json:{message:"log out successful"}
     end
@@ -60,9 +60,10 @@ class ApplicationController < ActionController::API
     end 
     
     #delete user id in session
-    def remove_user_session
+    def remove_user
         session.delete(:uid) 
         session[:expiry] = Time.now 
+        render json:{message:"log out successful"}
     end
     
     #check for session expiry

@@ -14,9 +14,14 @@ class RatingsController < ApplicationController
     end
 
     def destroy 
-        rating = rating_params
+        rating = find_rating
         rating.destroy
         head :no_content
+    end
+
+    def popularity
+        ratings = Rating.where(movie_id: params[:movie_id]).order(rating: :desc)
+        render json: ratings, include: :movies
     end
 
     private
