@@ -221,6 +221,24 @@ video = Video.create!([
         video: "https://www.youtube.com/embed/ntYXj9W1Ez8"
         user_id: 1
         description: "random you tube video about creating a react movie website"
+     },
+     {
+        title: "responsive react movie website"
+        video: "https://www.youtube.com/embed/ntYXj9W1Ez8"
+        user_id: 4
+        description: "random you tube video about creating a react movie website"
+     },
+     {
+        title: "movie web"
+        video: "https://www.youtube.com/embed/ntYXj9W1Ez8"
+        user_id: 3
+        description: "random you tube video about creating a react movie website"
+     },
+     {
+        title: "movie"
+        video: "https://www.youtube.com/embed/ntYXj9W1Ez8"
+        user_id: 2
+        description: "random you tube video about creating a react movie website"
      }
 ])
 
