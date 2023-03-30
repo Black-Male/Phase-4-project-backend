@@ -59,7 +59,7 @@ class VideosController < ApplicationController
     end
 
     def video_params 
-        params.permit(:title, :description, :video)
+        params.permit(:title, :description, :video,:likes,:image)
     end
 
     def render_unprocessable_entity_response(invalid)
