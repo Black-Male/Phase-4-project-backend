@@ -71,7 +71,8 @@ class ApplicationController < ActionController::API
          session[:expiry] ||= Time.now
          time_diff = (Time.parse(session[:expiry]) - Time.now).to_i
         unless time_diff > 0
-            app_response(message: 'failed', status: :unauthorized,data:{info: "your session has expired please login to continue"})
+            render json: {errors:"your session has expired log in to continue"}, status: :unauthorized
+            # app_response(message: 'failed', status: :unauthorized,data:{info: "your session has expired please login to continue"})
         
         end
     end

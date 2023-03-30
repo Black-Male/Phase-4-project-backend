@@ -12,6 +12,10 @@ class VideosController < ApplicationController
         render json: videos
     end
 
+    def oneVid 
+        video = Video.find(params[:id])
+        render json: video
+
     def index 
         videos = user.videos.all 
         render json: videos
