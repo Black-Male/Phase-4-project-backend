@@ -30,7 +30,13 @@ class VideosController < ApplicationController
 
     def like
         video = find_video
-        video.likes += 1
+        if user_liked_video?(video)
+            video.likes -= 1
+            video.likers.delete(current_user)
+        else
+            video.likes += 1
+            video.likers << current_user
+        end
         video.save
         render json: video
     end
@@ -58,5 +64,9 @@ class VideosController < ApplicationController
 
     def render_unprocessable_entity_response(invalid)
         render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
+
+    def user_liked_video?(video)
+        video.likers.include?(user)
     end
 end
