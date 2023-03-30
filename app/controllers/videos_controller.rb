@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-    before_action :session_expired?, except: [:all_videos]
+    before_action :session_expired?, except: [:all_videos,:oneVid]
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     
     def create 
