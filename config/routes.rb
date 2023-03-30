@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   resources :videos
   resources :reviews
-  resources :movies
-  resources :favorites
-  resources :ratings
-
-  get '/all_videos', to:"videos#all_videos"
+  resources :movies, only: [:index, :show]
+  resources :favorites, only: [:create, :index, :show, :destroy]
+  resources :ratings, only: [:create, :update, :destroy]
   
+  #videos
+  get '/all_videos', to:"videos#all_videos"
+  #reviews
   get '/users/reviews', to:"reviews#user_reviews"
    #user
    delete '/users/logout', to: "users#logout"
