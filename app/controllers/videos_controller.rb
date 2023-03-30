@@ -30,13 +30,13 @@ class VideosController < ApplicationController
 
     def like
         video = find_video
-        if user_liked_video?(video)
-            video.likes -= 1
-            video.likers.delete(current_user)
-        else
+        # if user_liked_video?(video)
             video.likes += 1
-            video.likers << current_user
-        end
+        #     video.likers.delete(current_user)
+        # else
+        #     video.likes += 1
+        #     video.likers << current_user
+        # end
         video.save
         render json: video
     end
