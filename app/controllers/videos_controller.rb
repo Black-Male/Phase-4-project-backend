@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-    before_action :session_expired?, except: [:all_videos]
+    before_action :session_expired?, except: [:all_videos,:oneVid]
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     
     def create 
@@ -27,6 +27,13 @@ class VideosController < ApplicationController
         video.update!(video_params) 
         render json: video
     end 
+
+    def like
+        video = find_video
+        video.likes += 1
+        video.save
+        render json: video
+    end
 
     def destroy
         video = video_params

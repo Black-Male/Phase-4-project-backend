@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   #videos
   get '/all_videos', to:"videos#all_videos"
   get '/all_videos/:id', to:"videos#oneVid"
+  post '/all_videos/:id', to:'videos#like'
   #reviews
   get '/users/reviews', to:"reviews#user_reviews"
    #user
