@@ -28,6 +28,13 @@ class VideosController < ApplicationController
         render json: video
     end 
 
+    def like
+        video = find_video
+        video.likes += 1
+        video.save
+        render json: video
+    end
+
     def destroy
         video = video_params
         video.destroy
