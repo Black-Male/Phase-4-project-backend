@@ -146,6 +146,66 @@ movie = Movie.create!([
         "image_src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTltzcooPkGcy1fKKqzSuO8U6S9XBpNDR9MuYc9SS_L5AbAn66O",
         "video": ""
     }
+    # {
+    #     "title": "Harry Potter and the Chamber of Secrets",
+    #     "description": "The film stars Daniel Radcliffe as Harry Potter, with Rupert Grint and Emma Watson as his best friends Ron Weasley and Hermione Granger respectively. The story follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, where the Heir of Salazar Slytherin opens the Chamber of Secrets, unleashing a monster that petrifies the school's students.",
+    #     "runtime": "2h 41m",
+    #     "release_date": "2002",
+    #     "cast": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    #     "director": "Chris Colombus",
+    #     "image_src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTltzcooPkGcy1fKKqzSuO8U6S9XBpNDR9MuYc9SS_L5AbAn66O",
+    #     "video": ""
+    # },
+    # {
+    #     "title": "Harry Potter and the Chamber of Secrets",
+    #     "description": "The film stars Daniel Radcliffe as Harry Potter, with Rupert Grint and Emma Watson as his best friends Ron Weasley and Hermione Granger respectively. The story follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, where the Heir of Salazar Slytherin opens the Chamber of Secrets, unleashing a monster that petrifies the school's students.",
+    #     "runtime": "2h 41m",
+    #     "release_date": "2002",
+    #     "cast": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    #     "director": "Chris Colombus",
+    #     "image_src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTltzcooPkGcy1fKKqzSuO8U6S9XBpNDR9MuYc9SS_L5AbAn66O",
+    #     "video": ""
+    # },
+    # {
+    #     "title": "Harry Potter and the Chamber of Secrets",
+    #     "description": "The film stars Daniel Radcliffe as Harry Potter, with Rupert Grint and Emma Watson as his best friends Ron Weasley and Hermione Granger respectively. The story follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, where the Heir of Salazar Slytherin opens the Chamber of Secrets, unleashing a monster that petrifies the school's students.",
+    #     "runtime": "2h 41m",
+    #     "release_date": "2002",
+    #     "cast": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    #     "director": "Chris Colombus",
+    #     "image_src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTltzcooPkGcy1fKKqzSuO8U6S9XBpNDR9MuYc9SS_L5AbAn66O",
+    #     "video": ""
+    # },
+    # {
+    #     "title": "Harry Potter and the Chamber of Secrets",
+    #     "description": "The film stars Daniel Radcliffe as Harry Potter, with Rupert Grint and Emma Watson as his best friends Ron Weasley and Hermione Granger respectively. The story follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, where the Heir of Salazar Slytherin opens the Chamber of Secrets, unleashing a monster that petrifies the school's students.",
+    #     "runtime": "2h 41m",
+    #     "release_date": "2002",
+    #     "cast": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    #     "director": "Chris Colombus",
+    #     "image_src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTltzcooPkGcy1fKKqzSuO8U6S9XBpNDR9MuYc9SS_L5AbAn66O",
+    #     "video": ""
+    # },
+    # {
+    #     "title": "Harry Potter and the Chamber of Secrets",
+    #     "description": "The film stars Daniel Radcliffe as Harry Potter, with Rupert Grint and Emma Watson as his best friends Ron Weasley and Hermione Granger respectively. The story follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, where the Heir of Salazar Slytherin opens the Chamber of Secrets, unleashing a monster that petrifies the school's students.",
+    #     "runtime": "2h 41m",
+    #     "release_date": "2002",
+    #     "cast": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    #     "director": "Chris Colombus",
+    #     "image_src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTltzcooPkGcy1fKKqzSuO8U6S9XBpNDR9MuYc9SS_L5AbAn66O",
+    #     "video": ""
+    # },
+    # {
+    #     "title": "Harry Potter and the Chamber of Secrets",
+    #     "description": "The film stars Daniel Radcliffe as Harry Potter, with Rupert Grint and Emma Watson as his best friends Ron Weasley and Hermione Granger respectively. The story follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, where the Heir of Salazar Slytherin opens the Chamber of Secrets, unleashing a monster that petrifies the school's students.",
+    #     "runtime": "2h 41m",
+    #     "release_date": "2002",
+    #     "cast": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    #     "director": "Chris Colombus",
+    #     "image_src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTltzcooPkGcy1fKKqzSuO8U6S9XBpNDR9MuYc9SS_L5AbAn66O",
+    #     "video": ""
+    # }
 ])
 
 2.times do
@@ -153,6 +213,33 @@ movie = Movie.create!([
       user_id: rand(1..4),
       movie_id: rand(1..10)
     )
-  end
+end
+
+video = Video.create!([
+     {
+        title: "responsive react movie website"
+        video: "https://www.youtube.com/embed/ntYXj9W1Ez8"
+        user_id: 1
+        description: "random you tube video about creating a react movie website"
+     },
+     {
+        title: "responsive react movie website"
+        video: "https://www.youtube.com/embed/ntYXj9W1Ez8"
+        user_id: 4
+        description: "random you tube video about creating a react movie website"
+     },
+     {
+        title: "movie web"
+        video: "https://www.youtube.com/embed/ntYXj9W1Ez8"
+        user_id: 3
+        description: "random you tube video about creating a react movie website"
+     },
+     {
+        title: "movie"
+        video: "https://www.youtube.com/embed/ntYXj9W1Ez8"
+        user_id: 2
+        description: "random you tube video about creating a react movie website"
+     }
+])
 
 puts "OVER AND OUT"

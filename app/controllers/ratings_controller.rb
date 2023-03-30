@@ -4,13 +4,15 @@ class RatingsController < ApplicationController
 
     def create 
         rating = user.ratings.create!(rating_params)
-        render json: rating, status: :created
+        average_rating = calculate_average_rating(params[:movie_id])
+        render json: rating.merge(average_rating: average_rating), status: :created
     end
 
     def update
         rating = find_rating
         rating.update!(rating_params) 
-        render json: rating
+        average_rating = calculate_average_rating(params[:movie_id])
+        render json: rating.merge(average_rating: average_rating)
     end
 
     def destroy 
@@ -19,9 +21,13 @@ class RatingsController < ApplicationController
         head :no_content
     end
 
+    def calculate_average_rating(movie_id)
+        Rating.where(movie_id: movie_id).average(:rating).round(2)
+    end
+
     def popularity
-        ratings = Rating.where(movie_id: params[:movie_id]).order(rating: :desc)
-        render json: ratings, include: :movies
+        ratings = Rating.where(movie_id: params[:movie_id]).order(rating: :desc).includes(:movie)
+        render json: ratings, include: :movie
     end
 
     private
