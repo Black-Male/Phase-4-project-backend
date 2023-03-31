@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :session_expired?, only: [:check_login_status] 
+    # before_action :session_expired?, only: [:check_login_status] 
 
     def register
         user = User.create(user_params)
@@ -40,6 +40,11 @@ class UsersController < ApplicationController
             render json: {errors: "Email not found"}, status: :not_found
         end
     end
+
+    # def index 
+    #     users = User.all 
+    #     render json: users 
+    # end
 
     private 
 

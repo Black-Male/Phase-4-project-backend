@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #reviews
   get '/users/reviews', to:"reviews#user_reviews"
    #user
+  #  get '/all', to:"users#index"
    delete '/users/logout', to: "users#logout"
    post '/users', to:"users#register"
    post '/users/login', to:"users#login"
