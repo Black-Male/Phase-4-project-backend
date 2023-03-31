@@ -37,7 +37,7 @@ class RatingsController < ApplicationController
     end
 
     def rating_params 
-        params.permit(:movie_id,:rating)
+        params.permit(:movie_id,:rating,:user_id)
     end
 
     def render_unprocessable_entity_response(invalid)

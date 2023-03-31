@@ -50,10 +50,11 @@ class VideosController < ApplicationController
 
     def find_video 
         user.videos.find(params[:id])
+        # @current_user.videos.find(params[:id])
     end
 
     def video_params 
-        params.permit(:title, :description, :video, :likes, :image)
+        params.permit(:title, :description, :video, :likes, :image, :user_id)
     end
 
     def render_unprocessable_entity_response(invalid)

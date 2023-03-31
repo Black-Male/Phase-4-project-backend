@@ -32,7 +32,7 @@ class FavoritesController < ApplicationController
     end
 
     def favorite_params
-        params.permit(:movie_id)
+        params.permit(:movie_id,:user_id)
     end
 
 
