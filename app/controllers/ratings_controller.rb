@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-    before_action :session_expired?
+    # before_action :session_expired?
 
     def create 
         rating = user.ratings.create!(rating_params)

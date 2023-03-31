@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-    before_action :session_expired?, except: [:all_videos,:oneVid]
+    # before_action :session_expired?, except: [:all_videos,:oneVid]
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     
     def create 
@@ -30,13 +30,7 @@ class VideosController < ApplicationController
 
     def like
         video = find_video
-        # if user_liked_video?(video)
-            video.likes += 1
-        #     video.likers.delete(current_user)
-        # else
-        #     video.likes += 1
-        #     video.likers << current_user
-        # end
+        video.likes += 1
         video.save
         render json: video
     end
@@ -59,14 +53,10 @@ class VideosController < ApplicationController
     end
 
     def video_params 
-        params.permit(:title, :description, :video,:likes,:image)
+        params.permit(:title, :description, :video, :likes, :image)
     end
 
     def render_unprocessable_entity_response(invalid)
         render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
-    end
-
-    def user_liked_video?(video)
-        video.likers.include?(user)
     end
 end

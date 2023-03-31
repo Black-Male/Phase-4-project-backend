@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-    before_action :session_expired?, except:[:index]
+    # before_action :session_expired?, except:[:index]
 
 
     def index 
