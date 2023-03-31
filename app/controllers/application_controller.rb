@@ -56,7 +56,7 @@ class ApplicationController < ActionController::API
      #store user id in session
      def save_user(id)
         session[:uid] = id
-        session[:expiry] = 12.hours.from_now
+        # session[:expiry] = 12.hours.from_now
     end 
     
     #delete user id in session
