@@ -12,12 +12,12 @@ class ApplicationController < ActionController::API
             },
             exp: Time.now.to_i + (24 * 3600)
         }
-        JWT.encode(payload,'movies_key', 'HS256')
+        JWT.encode(payload,ENV['movies_key'], 'HS256')
     end
 
     #unhash token
     def decode(token)
-        JWT.decode(token,'movies_key',true,{algorithm:'HS256'})
+        JWT.decode(token,ENV['movies_key'],true,{algorithm:'HS256'})
     end
 
     # get logged in user
