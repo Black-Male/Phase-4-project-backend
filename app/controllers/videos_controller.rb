@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+    before_action :verify_auth, except: [:all_videos,:oneVid]
     # before_action :session_expired?, except: [:all_videos,:oneVid]
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     
@@ -29,14 +30,18 @@ class VideosController < ApplicationController
     end 
 
     def like
-        video = find_video
+        video = Video.find(params[:id])
+        if video.user_id == @uid
+            render json: { errors: "You cannot like your own videos" }, status: :unprocessable_entity
+        else
         video.likes += 1
         video.save
         render json: video
+        end
     end
 
     def destroy
-        video = video_params
+        video = find_video
         video.destroy
         head :no_content
     end
@@ -50,7 +55,6 @@ class VideosController < ApplicationController
 
     def find_video 
         user.videos.find(params[:id])
-        # @current_user.videos.find(params[:id])
     end
 
     def video_params 

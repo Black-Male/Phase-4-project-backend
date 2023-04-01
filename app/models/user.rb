@@ -1,9 +1,9 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :reviews 
-    has_many :ratings
-    has_many :favorites
-    has_many :videos
+    has_many :reviews, dependent: :destroy 
+    has_many :ratings, dependent: :destroy 
+    has_many :favorites, dependent: :destroy 
+    has_many :videos, dependent: :destroy 
     has_many :movies, through: :favorites
     
     validates :email,{

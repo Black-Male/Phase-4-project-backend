@@ -18,6 +18,8 @@ Rails.application.routes.draw do
    post '/users/login', to:"users#login"
    get 'users/login/check', to:"users#check_login_status"
    post '/users/reset', to:"users#reset_password"
+   #to delete a user 
+  delete '/users/delete/:id', to:"users#delete_account" 
   # resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
