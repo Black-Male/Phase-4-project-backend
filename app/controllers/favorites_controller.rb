@@ -1,6 +1,8 @@
 class FavoritesController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     # before_action :session_expired?
+    before_action :verify_auth
+
 
     def create 
         favorite = user.favorites.create!(favorite_params)

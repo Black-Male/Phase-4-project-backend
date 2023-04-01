@@ -12,16 +12,16 @@ class ApplicationController < ActionController::API
             },
             exp: Time.now.to_i + (24 * 3600)
         }
-        JWT.encode(payload, ENV['movies_key'], 'HS256')
+        JWT.encode(payload,'movies_key', 'HS256')
     end
 
     #unhash token
     def decode(token)
-        JWT.decode(token, ENV['movies_key'],true,{algorithm:'HS256'})
+        JWT.decode(token,'movies_key',true,{algorithm:'HS256'})
     end
 
     # get logged in user
-    def user_token
+    def user
         User.find(@uid) 
     end
 
@@ -43,7 +43,7 @@ class ApplicationController < ActionController::API
     end
 
     #delete jwt token 
-    def remove_user_token 
+    def remove_user 
         token = nil
         render json:{message:"log out successful"}
     end
@@ -54,13 +54,16 @@ class ApplicationController < ActionController::API
     end
 
      #store user id in session
-     def save_user(id)
+    def save_user(id)
+        puts "user id #{id}"
         session[:uid] = id
-        # session[:expiry] = 12.hours.from_now
+        puts "session at save user #{session[:uid]}"
+        session[:expiry] = 12.hours.from_now
+        puts "session expiry at save user #{session[:expiry]}"
     end 
     
     #delete user id in session
-    def remove_user
+    def remove_user_session
         session.delete(:uid) 
         session[:expiry] = Time.now 
         render json:{message:"log out successful"}
@@ -76,7 +79,8 @@ class ApplicationController < ActionController::API
     end
 
     #get logged in user session
-    def user 
+    def user_session 
+        puts "session  #{session[:uid].inspect}"
         User.find(session[:uid].to_i)
     end
     

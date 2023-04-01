@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     # before_action :session_expired?, only: [:check_login_status] 
+    before_action :verify_auth, only: [:check_login_status] 
 
     def register
         user = User.create(user_params)
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
             save_user(user.id)
             render json: user,status: :created
         else
-            render json: user.errors, status: :unprocessable_entity
+            render json: {errors: user.errors}, status: :unprocessable_entity
         end 
     end
 
@@ -21,6 +22,12 @@ class UsersController < ApplicationController
         else
             render json: {errors: "invalid username or password"}, status: :unauthorized
         end
+    end
+
+    def delete_account
+        user = User.find(params[:id])
+        user.destroy 
+        head :no_content
     end
 
     def logout
