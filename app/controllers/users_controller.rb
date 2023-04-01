@@ -30,6 +30,12 @@ class UsersController < ApplicationController
         head :no_content
     end
 
+    def show
+        user = User.find(params[:id])
+        render json: user 
+    end
+
+
     def logout
         remove_user
     end
