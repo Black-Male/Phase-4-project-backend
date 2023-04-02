@@ -1,24 +1,139 @@
-# README
+# MOVIE API
+## Description
+This is an API created by Ruby on Rails. It has 6 tables: users, movies, favorites, videos, ratings and reviews.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This API serves as the backend for our movie app, KenyaFlix.
+The link to the front-end is [here](https://github.com/MakenaG/phase-4-final-project)
 
-Things you may want to cover:
+Or you can use this https://github.com/MakenaG/phase-4-final-project
 
-* Ruby version
+The API has already been deployed. Here is the link to the [backend](https://backend-dc1w.onrender.com/)
 
-* System dependencies
+Or you can go here https://backend-dc1w.onrender.com/
 
-* Configuration
+The tables have the following relationships
+The movies table has a many to many relationship with the users table through the favorites table.
+The users table has a one to many relationship with the videos, ratings, and reviews tables.
+Movies table has a one to many relationship with both the ratings and the reviews tables.
 
-* Database creation
+It has the following public routes
+      
+       GET /movies
+       
+       GET /movies/:id
+       
+       GET /all_videos
+       
+       GET /all_videos/:id
+       
+       GET /reviews
+       
+These are the protected routes  
+       
+       DELETE /users/logout
+       
+       POST /users
+       
+       POST /users/login
+       
+       POST /users/reset
+       
+       DELETE /users/delete/:id
+       
+       GET /users/:id     
+       
+       POST /all_videos/:id
+       
+       GET /favorites
+       
+       GET /favorites/:id
+       
+       POST /favorites
+       
+       DELETE /favorites/:id
+       
+       GET /videos
+       
+       POST /videos
+       
+       PUT /videos/:id
+       
+       DESTROY /videos/:id
+       
+       GET /users/reviews
+       
+       POST /reviews
+       
+       PUT /reviews/:id
+       
+       DESTROY /reviews/:id
+       
+       GET /ratings
+       
+       POST /ratings
+       
+       PUT /ratings/:id
+       
+       DESTROY /ratings/:id
+       
+       
 
-* Database initialization
+## Requirements
+In order to use this repo you need to have the following installed:
 
-* How to run the test suite
+- OS [either: Windows 10+, Linux or MacOS(running on x86 or arm architecture)]
+- VS Code
+- Ruby
 
-* Services (job queues, cache servers, search engines, etc.)
+## Installation
+Clone from this here [github](https://github.com/Black-Male/Phase-4-project-backend)
 
-* Deployment instructions
+to clone follow this steps
 
-* ...
+
+Clone the repo by using the following:     
+
+       https://github.com/Black-Male/Phase-4-project-backend
+
+Change directory to the repo folder: 
+
+        cd Phase-4-project-backend
+
+Open it in Visual Studio Code
+
+        code .
+
+## Running This Application
+Running the application is very straight forward. You can use the following steps to run the app. 
+
+- Ensure the ruby gems are setup in your machine
+
+      bundle install
+      
+- Perform database migrations
+
+      rails db:migrate
+      
+- Run the application on the terminal
+
+      rails console
+
+- Run the server
+
+      rails s      
+      
+
+
+
+## Author 
+
+ Grace Aloo
+ 
+ Glory Makena
+ 
+ George Karanja
+ 
+ Gregory Lubano
+
+## License
+MIT
