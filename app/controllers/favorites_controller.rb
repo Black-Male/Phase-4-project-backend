@@ -11,13 +11,12 @@ class FavoritesController < ApplicationController
 
     def index 
         favorites = user.favorites.all 
-        fav_movie = favorites.map(&:movie)
-        render json: fav_movie
+        render json: favorites 
     end
 
     def show 
         favorite = find_favorite
-        render json: favorite.movie
+        render json: favorite
     end
 
     def destroy 
