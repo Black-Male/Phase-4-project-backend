@@ -106,7 +106,7 @@ movie = Movie.create!([
         "cast": "Daniel Radcliffe, Rupert Grint, Emma Watson",
         "director": "Chris Colombus",
         "image_src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTltzcooPkGcy1fKKqzSuO8U6S9XBpNDR9MuYc9SS_L5AbAn66O",
-        "video": ="https://www.youtube.com/embed/jBltxS8HfQ4"
+        "video": "https://www.youtube.com/embed/jBltxS8HfQ4"
     }
     # {
     #     "title": "Spider-man: no way home",
@@ -170,7 +170,7 @@ movie = Movie.create!([
     # }
 ])
 
-2.times do
+4.times do
     Favorite.create!(
       user_id: rand(1..4),
       movie_id: rand(1..10)
