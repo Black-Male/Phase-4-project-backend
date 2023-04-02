@@ -27,13 +27,14 @@ class ApplicationController < ActionController::API
 
     def verify_auth
         auth_headers = request.headers['Authorization']
+        puts "auth_headers: #{auth_headers.inspect}"
         if auth_headers.blank?
             render json:{errors:"Your request is not authorized"}, status: :unauthorized
         else
             token = auth_headers.split(' ')[1]
+            puts "token: #{token.inspect}"
             @uid = decode(token)[0]["data"]["uid"].to_i
-
-            # save_user_id(token)
+            puts "@uid: #{@uid}"
         end
     end
 
