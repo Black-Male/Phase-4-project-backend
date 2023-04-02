@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     # before_action :session_expired?, only: [:check_login_status] 
     before_action :verify_auth, only: [:check_login_status] 
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def register
         user = User.create(user_params)
@@ -30,6 +31,12 @@ class UsersController < ApplicationController
         head :no_content
     end
 
+    def show
+        user = User.find(params[:id])
+        render json: user 
+    end
+
+
     def logout
         remove_user
     end
@@ -54,6 +61,9 @@ class UsersController < ApplicationController
     # end
 
     private 
+    def render_unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
 
     def user_params 
         params.permit(:username,:email,:password)
