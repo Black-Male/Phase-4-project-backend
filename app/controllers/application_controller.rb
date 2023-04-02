@@ -50,7 +50,7 @@ class ApplicationController < ActionController::API
 
      # rescue all common errors
     def standard_error(exception)
-        render json:{errors:exception.message.full_messages}, status: :unprocessable_entity
+        render json:{errors:exception.message}, status: :unprocessable_entity
     end
 
      #store user id in session
