@@ -5,6 +5,12 @@ This is an API created by Ruby on Rails. It has 6 tables: users, movies, favorit
 This API serves as the backend for our movie app, KenyaFlix.
 The link to the front-end is [here](https://github.com/MakenaG/phase-4-final-project)
 
+Or you can use this https://github.com/MakenaG/phase-4-final-project
+
+The API has already been deployed. Here is the link to the [backend](https://backend-dc1w.onrender.com/)
+
+Or you can go here https://backend-dc1w.onrender.com/
+
 The tables have the following relationships
 The movies table has a many to many relationship with the users table through the favorites table.
 The users table has a one to many relationship with the videos, ratings, and reviews tables.
