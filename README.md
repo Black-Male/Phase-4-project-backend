@@ -5,6 +5,10 @@ This is an API created by Ruby on Rails. It has 6 tables: users, movies, favorit
 This API serves as the backend for our movie app, KenyaFlix.
 The link to the front-end is [here](https://github.com/MakenaG/phase-4-final-project)
 
+The link to the site is[here](https://movie-app-c3ol.onrender.com/)
+
+Or you can use https://movie-app-c3ol.onrender.com/
+
 Or you can use this https://github.com/MakenaG/phase-4-final-project
 
 The API has already been deployed. Here is the link to the [backend](https://backend-dc1w.onrender.com/)
@@ -58,7 +62,7 @@ These are the protected routes
        
        PUT /videos/:id
        
-       DESTROY /videos/:id
+       DELETE /videos/:id
        
        GET /users/reviews
        
@@ -66,7 +70,7 @@ These are the protected routes
        
        PUT /reviews/:id
        
-       DESTROY /reviews/:id
+       DELETE /reviews/:id
        
        GET /ratings
        
@@ -74,7 +78,7 @@ These are the protected routes
        
        PUT /ratings/:id
        
-       DESTROY /ratings/:id
+       DELETE /ratings/:id
        
        
 
