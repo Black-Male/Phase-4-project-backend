@@ -27,14 +27,11 @@ class ApplicationController < ActionController::API
 
     def verify_auth
         auth_headers = request.headers['Authorization']
-        puts "auth_headers: #{auth_headers.inspect}"
         if auth_headers.blank?
             render json:{errors:"Your request is not authorized"}, status: :unauthorized
         else
             token = auth_headers.split(' ')[1]
-            puts "token: #{token.inspect}"
             @uid = decode(token)[0]["data"]["uid"].to_i
-            puts "@uid: #{@uid}"
         end
     end
 
@@ -56,11 +53,8 @@ class ApplicationController < ActionController::API
 
      #store user id in session
     def save_user(id)
-        puts "user id #{id}"
         session[:uid] = id
-        puts "session at save user #{session[:uid]}"
         session[:expiry] = 12.hours.from_now
-        puts "session expiry at save user #{session[:expiry]}"
     end 
     
     #delete user id in session
