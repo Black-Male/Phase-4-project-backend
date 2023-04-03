@@ -16,6 +16,9 @@ The movies table has a many to many relationship with the users table through th
 The users table has a one to many relationship with the videos, ratings, and reviews tables.
 Movies table has a one to many relationship with both the ratings and the reviews tables.
 
+image of the backend
+![Untitled](https://user-images.githubusercontent.com/109147065/229386067-3911640d-4227-45e5-8502-8643f2043535.png)
+
 It has the following public routes
       
        GET /movies
